@@ -3,22 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phurin reabroi</title>
+    <title>Phurin reabroi - Portfolio OS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- Retro Page Styles --- */
+        /* --- Retro & Neo-Brutalisim Page Styles --- */
         body {
             font-family: 'Courier New', Courier, monospace; 
             background-color: #2b2b2b; 
             margin: 0;
             display: flex;
-            justify-content: center;
-            align-items: flex-start; 
+            flex-direction: column;
+            align-items: center; 
             min-height: 100vh;
-            padding: 40px 0;
+            padding: 0px 0 40px 0;
             background-image: radial-gradient(#333 15%, transparent 16%);
             background-size: 20px 20px;
+        }
+
+        /* --- [UPDATED] แถบโลโก้วิ่งวนซ้ำแบบหนาแน่นพิเศษ (Seamless Extra Smooth) --- */
+        .tech-marquee-banner {
+            width: 100%;
+            background: #ffde4d;
+            border-bottom: 3px solid #000;
+            padding: 12px 0;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: flex;
+            position: relative;
+        }
+        
+        .tech-track {
+            display: flex;
+            gap: 60px;
+            padding-left: 60px;
+            white-space: nowrap;
+            /* ปรับเวลาเป็น 25 วินาที เพื่อให้ความเร็วในการวิ่งนุ่มนวลพอดีกับจำนวนโลโก้ที่เพิ่มขึ้น */
+            animation: marquee-seamless 25s linear infinite;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            color: #000;
+        }
+
+        .tech-item i {
+            font-size: 1.8rem; 
+        }
+
+        /* คุมสีไอคอนในแถบวิ่ง */
+        .tech-item .fa-html5 { color: #e34c26; }
+        .tech-item .fa-css3-alt { color: #264de4; }
+        .tech-item .fa-code { color: #00599C; }
+        .tech-item .fa-moon { color: #1e293b; }
+        .tech-item .fa-java { color: #ea2d2e; } 
+        .tech-item .fa-python { color: #3776ab; }
+        .tech-item .fa-git-alt { color: #f05032; }
+        .tech-item .fa-video { color: #9933cc; }
+        .tech-item .fa-magic { color: #31a8ff; }
+
+        @keyframes marquee-seamless {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Top Retro Navigation Header */
+        .retro-nav {
+            width: 95%;
+            max-width: 1100px;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            margin: 25px 0 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border: 2px solid #000;
+            background: #f4f4f4;
+            box-shadow: 3px 3px 0px #000;
         }
 
         /* Main Layout Container */
@@ -30,7 +118,7 @@
             align-items: flex-start;
         }
 
-        /* Left Column (Profile + Skills) */
+        /* Columns */
         .left-column {
             flex: 1;
             display: flex;
@@ -38,7 +126,6 @@
             gap: 25px;
         }
 
-        /* Right Column (Projects + Activity) */
         .right-column {
             flex: 1.5; 
             display: flex;
@@ -54,12 +141,42 @@
             box-shadow: 8px 8px 0px #000; 
             border-radius: 0; 
             text-align: center;
-            transition: transform 0.1s;
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
         }
 
         .box:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px #000;
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #000;
+        }
+
+        /* Window Header Style inside Box */
+        .window-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1.5px solid #000;
+        }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        .window-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
         }
 
         /* --- Typography & Typewriter --- */
@@ -74,7 +191,6 @@
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: black; } }
 
-        h2 { margin: 0 0 20px 0; font-size: 1.1rem; color: #333; font-weight: bold; text-transform: uppercase; }
         p { color: #000; line-height: 1.6; font-weight: 600; }
 
         .profile-pic {
@@ -88,19 +204,25 @@
             background-color: #fff; color: #000; padding: 6px 12px;
             border: 2px solid #000; box-shadow: 3px 3px 0px #000;
             font-size: 0.8rem; font-weight: 800;
+            transition: all 0.1s;
+            cursor: pointer;
+        }
+        .skill-badge:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
+            background: #ffffcc;
         }
         
-        /* Skill Colors */
+        /* Skill Colors (In Profile Box) */
         .html-skill i { color: #e34c26; } 
         .css-skill i { color: #264de4; }
         .c-skill i { color: #00599C; } 
         .lua-skill i { color: #000080; }
+        .java-skill i { color: #ea2d2e; } 
         .python-skill i { color: #3776ab; } 
         .git-skill i { color: #f05032; }
-        
-        /* New Skills Colors */
-        .premiere-skill i { color: #9933cc; } /* สีม่วง */
-        .ps-skill i { color: #31a8ff; }       /* สีฟ้า */
+        .premiere-skill i { color: #9933cc; } 
+        .ps-skill i { color: #31a8ff; }       
 
         /* --- Projects --- */
         .project-list { display: flex; flex-direction: column; gap: 15px; }
@@ -122,11 +244,13 @@
         }
         .social-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
         .github { background-color: #333; } .facebook { background-color: #3b5998; } .instagram { background: #d62976; }
+        .email-btn { background-color: #e65c00; } 
 
-        .graph-img { width: 100%; height: auto; }
+        .graph-img { width: 100%; height: auto; border: 2px solid #000; background: #fff; padding: 10px; box-sizing: border-box; }
 
         /* Mobile Responsive */
         @media (max-width: 850px) {
+            .retro-nav { flex-direction: column; gap: 10px; text-align: center; }
             .main-wrapper { flex-direction: column; align-items: center; }
             .left-column, .right-column { width: 100%; }
         }
@@ -134,27 +258,91 @@
 </head>
 <body>
 
+    <div class="tech-marquee-banner">
+        <div class="tech-track">
+            <span class="tech-item"><i class="fab fa-html5"></i></span>
+            <span class="tech-item"><i class="fab fa-css3-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-code"></i></span>
+            <span class="tech-item"><i class="fas fa-moon"></i></span>
+            <span class="tech-item"><i class="fab fa-java"></i></span>
+            <span class="tech-item"><i class="fab fa-python"></i></span>
+            <span class="tech-item"><i class="fab fa-git-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-video"></i></span>
+            <span class="tech-item"><i class="fas fa-magic"></i></span>
+            <span class="tech-item"><i class="fab fa-html5"></i></span>
+            <span class="tech-item"><i class="fab fa-css3-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-code"></i></span>
+            <span class="tech-item"><i class="fas fa-moon"></i></span>
+            <span class="tech-item"><i class="fab fa-java"></i></span>
+            <span class="tech-item"><i class="fab fa-python"></i></span>
+            <span class="tech-item"><i class="fab fa-git-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-video"></i></span>
+            <span class="tech-item"><i class="fas fa-magic"></i></span>
+        </div>
+        <div class="tech-track">
+            <span class="tech-item"><i class="fab fa-html5"></i></span>
+            <span class="tech-item"><i class="fab fa-css3-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-code"></i></span>
+            <span class="tech-item"><i class="fas fa-moon"></i></span>
+            <span class="tech-item"><i class="fab fa-java"></i></span>
+            <span class="tech-item"><i class="fab fa-python"></i></span>
+            <span class="tech-item"><i class="fab fa-git-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-video"></i></span>
+            <span class="tech-item"><i class="fas fa-magic"></i></span>
+            <span class="tech-item"><i class="fab fa-html5"></i></span>
+            <span class="tech-item"><i class="fab fa-css3-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-code"></i></span>
+            <span class="tech-item"><i class="fas fa-moon"></i></span>
+            <span class="tech-item"><i class="fab fa-java"></i></span>
+            <span class="tech-item"><i class="fab fa-python"></i></span>
+            <span class="tech-item"><i class="fab fa-git-alt"></i></span>
+            <span class="tech-item"><i class="fas fa-video"></i></span>
+            <span class="tech-item"><i class="fas fa-magic"></i></span>
+        </div>
+    </div>
+
+    <nav class="retro-nav">
+        <div class="nav-logo">[ PHURIN_REABROI.EXE ]</div>
+        <div class="nav-links">
+            <a href="#about"><i class="fas fa-user"></i> About</a>
+            <a href="#projects"><i class="fas fa-folder"></i> Projects</a>
+        </div>
+    </nav>
+
     <div class="main-wrapper">
         
         <div class="left-column">
-            <div class="box">
+            <div class="box" id="about">
+                <div class="window-header">
+                    <div class="window-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="window-title">Profile.sys</div>
+                </div>
+
                 <img src="image/IMG_6885.jpg" alt="Profile Picture" class="profile-pic">
                 <div class="h1-wrapper">
                     <div class="typing-text">Phurin reabroi</div>
                 </div>
-                <h2>&lt;Student /&gt;</h2>
+                <p style="margin: 0; color: #555; font-size: 0.9rem;">&lt;Student /&gt;</p>
+                
+                <p style="margin: 5px 0 0 0; font-size: 0.85rem; color: #000; background: #fff; display: inline-block; padding: 3px 8px; border: 1.5px solid #000; box-shadow: 2px 2px 0px #000;">
+                    <i class="fas fa-envelope"></i> rattatuye@gmail.com
+                </p>
+
                 <div style="height: 2px; background: #000; width: 50%; margin: 20px auto;"></div>
                 <p>
                     I'm currently studying at Rajabhat Udon Thani University, majoring in IT. 
                     I'm learning HTML, CSS, C, and Lua.
                 </p>
 
-                <h2 style="margin-top: 30px; font-size: 0.9rem;">My Skills</h2>
+                <div style="border-top: 2px dashed #000; margin-top: 30px; padding-top: 15px;">
+                    <span style="font-size: 0.9rem; font-weight: bold; text-transform: uppercase;">My Skills</span>
+                </div>
                 <div class="skills-wrapper">
                     <span class="skill-badge html-skill"><i class="fab fa-html5"></i> HTML</span>
                     <span class="skill-badge css-skill"><i class="fab fa-css3-alt"></i> CSS</span>
                     <span class="skill-badge c-skill"><i class="fas fa-code"></i> C</span>
                     <span class="skill-badge lua-skill"><i class="fas fa-moon"></i> Lua</span>
+                    <span class="skill-badge java-skill"><i class="fab fa-java"></i> Java</span>
                     <span class="skill-badge python-skill"><i class="fab fa-python"></i> Python</span>
                     <span class="skill-badge git-skill"><i class="fab fa-git-alt"></i> Git</span>
                     
@@ -164,8 +352,12 @@
             </div>
 
             <div class="box">
-                <h2>Social Media</h2>
+                <div class="window-header">
+                    <div class="window-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="window-title">Social_Links.lnk</div>
+                </div>
                 <div class="social-links">
+                    <a href="mailto:rattatuye@gmail.com" class="social-btn email-btn"><i class="fas fa-envelope"></i> Email Me</a>
                     <a href="https://github.com/Phurin-reabroi" target="_blank" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://www.facebook.com/phurin.reabroi/" target="_blank" class="social-btn facebook"><i class="fab fa-facebook"></i> Facebook</a>
                     <a href="https://www.instagram.com/phurin_reabroi/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
@@ -174,8 +366,11 @@
         </div>
 
         <div class="right-column">
-            <div class="box">
-                <h2>GitHub Projects</h2>
+            <div class="box" id="projects">
+                <div class="window-header">
+                    <div class="window-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="window-title">Repositories.dir</div>
+                </div>
                 <div class="project-list">
                     <a href="https://github.com/rattatuye-code/Phurin_Reabroi_github.io" target="_blank" class="project-card">
                         <span class="project-title"><i class="fas fa-folder-open"></i> Portfolio Website</span>
@@ -193,7 +388,10 @@
             </div>
 
             <div class="box">
-                <h2>GitHub Activity</h2>
+                <div class="window-header">
+                    <div class="window-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="window-title">Git_Activity.log</div>
+                </div>
                 <img src="https://ghchart.rshah.org/000000/Phurin-reabroi" alt="Phurin's Github Chart" class="graph-img">
                 <p style="font-size: 0.8rem; margin-top: 10px;">My contribution history over the last year</p>
             </div>
